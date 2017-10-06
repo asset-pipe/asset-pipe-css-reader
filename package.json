@@ -1,0 +1,46 @@
+{
+    "name": "asset-pipe-css-reader",
+    "version": "1.0.0-alpha.1",
+    "author": {
+        "name": "Richard Walker",
+        "email": "digitalsadhu@gmail.com"
+    },
+    "description": "CSS asset feed reader",
+    "main": "./lib/reader.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:asset-pipe/asset-pipe-css-reader.git"
+    },
+    "keywords": [
+        "css",
+        "assets"
+    ],
+    "contributors": [
+        {
+            "name": "Richard Walker",
+            "email": "digitalsadhu@gmail.com"
+        }
+    ],
+    "bugs": {
+        "url": "https://github.com/asset-pipe/asset-pipe-css-reader/issues"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "asset-pipe-common": "1.0.0-beta.6"
+    },
+    "devDependencies": {
+        "eslint": "^4.1.1",
+        "eslint-config-finn": "^2.0.0",
+        "jest": "^21.2.1",
+        "prettier": "^1.7.4"
+    },
+    "scripts": {
+        "format": "prettier --write --single-quote --tab-width=4 lib/**/*.js test/**/*.js",
+        "lint": "eslint .",
+        "pretest": "lint",
+        "test": "jest"
+    },
+    "files": [
+        "lib"
+    ]
+}
