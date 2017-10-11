@@ -136,6 +136,24 @@ test('Event: file not found multiple streams', done => {
     reader.resume();
 });
 
+test('Event: file not found on all streams, pipeline ready event', done => {
+    expect.assertions(1);
+    const sink = new SinkFs({
+        path: path.join(__dirname, './test-assets'),
+    });
+    const feedStream1 = sink.reader('does-not-exist.json');
+    const feedStream2 = sink.reader('does-not-exist.json');
+    const reader = new Reader([feedStream1, feedStream2]);
+
+    reader.on('pipeline ready', () => {
+        expect(true).toBe(true);
+        done();
+    });
+
+    reader.on('end', () => {});
+    reader.resume();
+});
+
 test('Event: parse error', done => {
     expect.assertions(1);
     const sink = new SinkFs({
