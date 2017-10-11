@@ -6,7 +6,7 @@ const Reader = require('../');
 const SinkFs = require('asset-pipe-sink-fs');
 const path = require('path');
 const { sort, dedupe, compareByOrder } = require('../lib/util');
-const { Readable, PassThrough } = require('stream');
+const { Readable, PassThrough } = require('readable-stream');
 
 function createSlowStream (sink, filePath, timeout = 1000) {
     const myStream = new PassThrough();
@@ -76,7 +76,7 @@ test('Dedupe of identical hashes occurs', done => {
         const bundle = [];
         reader.on('data', data => bundle.push(data.toString()));
         reader.on('end', () => {
-            expect(bundle.length).toBe(1);
+            expect(bundle).toHaveLength(1);
             done();
         });
     });
@@ -216,13 +216,13 @@ test('SortAndDedupe() rows without id value dropped', done => {
         .pipe(dedupe())
         .on('data', data => buffer.push(data))
         .on('end', () => {
-            expect(buffer.length).toBe(2);
+            expect(buffer).toHaveLength(2);
             done();
         });
 });
 
 test('new Reader([s1,s2,s3,s4]) ensure dedupe and correct css concat order', done => {
-    expect.assertions(3);
+    expect.assertions(1);
     const sink = new SinkFs({
         path: path.join(__dirname, './test-assets'),
     });
@@ -237,16 +237,18 @@ test('new Reader([s1,s2,s3,s4]) ensure dedupe and correct css concat order', don
         const bundle = [];
         reader.on('data', data => bundle.push(data.toString()));
         reader.on('end', () => {
-            expect(bundle[0]).toBe('/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n');
-            expect(bundle[1]).toBe('/* my-module-2/main.css */\n');
-            expect(bundle[2]).toBe('/* my-module-1/main.css */\n');
+            expect(bundle).toEqual([
+                '/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n',
+                '/* my-module-2/main.css */\n',
+                '/* my-module-1/main.css */\n',
+            ]);
             done();
         });
     });
 });
 
 test('new Reader([s1,s2,s3,s4]) operates correctly under slow speed conditions', done => {
-    expect.assertions(3);
+    expect.assertions(1);
     const sink = new SinkFs({
         path: path.join(__dirname, './test-assets'),
     });
@@ -262,9 +264,11 @@ test('new Reader([s1,s2,s3,s4]) operates correctly under slow speed conditions',
         const bundle = [];
         reader.on('data', data => bundle.push(data.toString()));
         reader.on('end', () => {
-            expect(bundle[0]).toBe('/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n');
-            expect(bundle[1]).toBe('/* my-module-2/main.css */\n');
-            expect(bundle[2]).toBe('/* my-module-1/main.css */\n');
+            expect(bundle).toEqual([
+                '/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n',
+                '/* my-module-2/main.css */\n',
+                '/* my-module-1/main.css */\n',
+            ]);
             done();
         });
     });
@@ -294,7 +298,7 @@ test('sort() transform operating on stream items without order property', done =
         .pipe(sort())
         .on('data', data => buffer.push(data))
         .on('end', () => {
-            expect(buffer.length).toBe(1);
+            expect(buffer).toHaveLength(1);
             done();
         });
 });
