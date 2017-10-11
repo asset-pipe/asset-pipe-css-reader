@@ -239,7 +239,7 @@ test('new Reader([s1,s2,s3,s4]) operates correctly under slow speed conditions',
     const feedStream1 = createSlowStream(sink, 'a.json', 800);
     const feedStream2 = sink.reader('b.json');
     const feedStream3 = createSlowStream(sink, 'c.json', 500);
-    const feedStream4 = createSlowStream(sink, 'd.json', 800);
+    const feedStream4 = createSlowStream(sink, 'd.json', 100);
 
     const reader = new Reader([
         feedStream1,
