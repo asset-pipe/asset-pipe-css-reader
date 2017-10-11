@@ -1,0 +1,18 @@
+[
+    {
+        "id":
+            "4f32a8e1c6cf6e5885241f3ea5fee583560b2dfde38b21ec3f9781c91d58f42e",
+        "name": "my-module-1",
+        "version": "1.0.1",
+        "file": "my-module-1/main.css",
+        "content": "/* my-module-1/main.css */\n"
+    },
+    {
+        "id":
+            "1820708872350aef30523aef4e3516172280ff75be7f0e419b104de43eef0a69",
+        "name": "my-module-2",
+        "version": "1.0.1",
+        "file": "my-module-2/css/main.css",
+        "content": "/* my-module-2/main.css */\n"
+    }
+]
