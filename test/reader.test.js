@@ -155,25 +155,25 @@ test('Event: parse error', done => {
 test('new Reader(): throws on no input', () => {
     expect.assertions(1);
     const result = () => new Reader();
-    expect(result).toThrow();
+    expect(result).toThrowErrorMatchingSnapshot();
 });
 
 test('new Reader(123): throws on non stream or array input', () => {
     expect.assertions(1);
     const result = () => new Reader(123);
-    expect(result).toThrow();
+    expect(result).toThrowErrorMatchingSnapshot();
 });
 
 test('new Reader([]): throws on empty array', () => {
     expect.assertions(1);
     const result = () => new Reader([]);
-    expect(result).toThrow();
+    expect(result).toThrowErrorMatchingSnapshot();
 });
 
 test('new Reader([1,2,3]): throws on array containing non stream items', () => {
     expect.assertions(1);
     const result = () => new Reader([1, 2, 3]);
-    expect(result).toThrow();
+    expect(result).toThrowErrorMatchingSnapshot();
 });
 
 test('SortAndDedupe() rows without id value dropped', done => {
