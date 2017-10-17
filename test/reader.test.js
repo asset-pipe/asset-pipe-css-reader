@@ -8,7 +8,7 @@ const path = require('path');
 const { sort, dedupe, compareByOrder } = require('../lib/util');
 const { Readable, PassThrough } = require('readable-stream');
 
-function createSlowStream (sink, filePath, timeout = 1000) {
+function createSlowStream(sink, filePath, timeout = 1000) {
     const myStream = new PassThrough();
 
     process.nextTick(() => myStream.emit('file found', filePath));
@@ -202,7 +202,7 @@ test('SortAndDedupe() rows without id value dropped', done => {
     const values = [{ id: 'asd' }, { x: '' }, { id: 'sdf' }];
     const stream = new Readable({
         objectMode: true,
-        read () {
+        read() {
             if (values.length === 0) {
                 this.push(null);
                 return;
@@ -231,7 +231,12 @@ test('new Reader([s1,s2,s3,s4]) ensure dedupe and correct css concat order', don
     const feedStream3 = sink.reader('c.json');
     const feedStream4 = sink.reader('d.json');
 
-    const reader = new Reader([feedStream1, feedStream2, feedStream3, feedStream4]);
+    const reader = new Reader([
+        feedStream1,
+        feedStream2,
+        feedStream3,
+        feedStream4,
+    ]);
 
     reader.on('pipeline ready', () => {
         const bundle = [];
@@ -258,7 +263,12 @@ test('new Reader([s1,s2,s3,s4]) operates correctly under slow speed conditions',
     const feedStream3 = createSlowStream(sink, 'c.json', 500);
     const feedStream4 = createSlowStream(sink, 'd.json', 100);
 
-    const reader = new Reader([feedStream1, feedStream2, feedStream3, feedStream4]);
+    const reader = new Reader([
+        feedStream1,
+        feedStream2,
+        feedStream3,
+        feedStream4,
+    ]);
 
     reader.on('pipeline ready', () => {
         const bundle = [];
@@ -281,10 +291,15 @@ test('compareByOrder(a, b) a and b are the same', () => {
 
 test('sort() transform operating on stream items without order property', done => {
     expect.assertions(1);
-    const items = [{ order: 1 }, { order: null }, { order: undefined }, { noOrder: 'hi' }];
+    const items = [
+        { order: 1 },
+        { order: null },
+        { order: undefined },
+        { noOrder: 'hi' },
+    ];
     const stream = new Readable({
         objectMode: true,
-        read () {
+        read() {
             if (!items.length) {
                 this.push(null);
                 return;
