@@ -21,6 +21,8 @@ This is an internal module intended for use by other modules in the [asset-pipe 
 
 ## Overview
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/asset-pipe/asset-pipe-css-reader.svg)](https://greenkeeper.io/)
+
 Given any number of css feed streams, the reader will:
 1. Merge streams into a single stream
 2. Dedupe any items with identical id hashes keeping the last occurrence
