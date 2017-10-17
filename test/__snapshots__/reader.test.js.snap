@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new Reader(): throws on no input 1`] = `
+"Expected first argument to new Reader() to be a stream or array of streams. 
+            Instead got undefined"
+`;
+
+exports[`new Reader([]): throws on empty array 1`] = `"Expected at least one stream to be provided to new Reader(). Got none."`;
+
+exports[`new Reader([1,2,3]): throws on array containing non stream items 1`] = `"Expected any/all arguments given to Reader constructor to be subclasses of Stream."`;
+
+exports[`new Reader(123): throws on non stream or array input 1`] = `
+"Expected first argument to new Reader() to be a stream or array of streams. 
+            Instead got undefined"
+`;

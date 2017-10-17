@@ -1,0 +1,11 @@
+[
+    {
+        "id":
+            "0791418bc4d8ce9e0315f5a23b729fd1fc77df0130b0336b3380d1b4f47c3855",
+        "name": "my-module-3",
+        "version": "1.0.1",
+        "file": "my-module-3/css/main.css",
+        "content":
+            "/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n"
+    }
+]
