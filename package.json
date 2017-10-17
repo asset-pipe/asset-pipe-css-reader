@@ -1,6 +1,6 @@
 {
   "name": "asset-pipe-css-reader",
-  "version": "1.0.0-alpha.1",
+  "version": "0.0.0-development",
   "author": "Richard Walker <digitalsadhu@gmail.com>",
   "description": "CSS asset feed reader",
   "main": "./lib/reader.js",
@@ -32,7 +32,8 @@
     "jest": "^21.2.1",
     "lint-staged": "^4.2.3",
     "prettier": "^1.7.4",
-    "projectz": "^1.4.0"
+    "projectz": "^1.4.0",
+    "semantic-release": "^8.2.0"
   },
   "scripts": {
     "format": "prettier --write --trailing-comma=all --single-quote --tab-width=4 lib/**/*.js test/**/*.js",
@@ -41,7 +42,8 @@
     "lint:format": "eslint --fix .",
     "precommit": "lint-staged",
     "cm": "git-cz",
-    "readme": "projectz compile"
+    "readme": "projectz compile",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "lib"
