@@ -243,9 +243,9 @@ test('new Reader([s1,s2,s3,s4]) ensure dedupe and correct css concat order', don
         reader.on('data', data => bundle.push(data.toString()));
         reader.on('end', () => {
             expect(bundle).toEqual([
-                '/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n',
-                '/* my-module-2/main.css */\n',
-                '/* my-module-1/main.css */\n',
+                '/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n\n',
+                '/* my-module-2/main.css */\n\n',
+                '/* my-module-1/main.css */\n\n',
             ]);
             done();
         });
@@ -275,9 +275,9 @@ test('new Reader([s1,s2,s3,s4]) operates correctly under slow speed conditions',
         reader.on('data', data => bundle.push(data.toString()));
         reader.on('end', () => {
             expect(bundle).toEqual([
-                '/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n',
-                '/* my-module-2/main.css */\n',
-                '/* my-module-1/main.css */\n',
+                '/* my-module-3/main.css */\n\n/* my-module-3/dep.css */\n\n/* dep/main.css */\n\n',
+                '/* my-module-2/main.css */\n\n',
+                '/* my-module-1/main.css */\n\n',
             ]);
             done();
         });
