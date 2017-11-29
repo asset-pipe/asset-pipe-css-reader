@@ -1,5 +1,5 @@
 {
-  "name": "asset-pipe-css-reader",
+  "name": "@asset-pipe/css-reader",
   "version": "0.0.0-development",
   "author": "Richard Walker <digitalsadhu@gmail.com>",
   "description": "CSS asset feed reader",
@@ -7,6 +7,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/asset-pipe/asset-pipe-css-reader"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "css",
