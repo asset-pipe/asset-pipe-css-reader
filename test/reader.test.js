@@ -16,7 +16,19 @@ test('reader(feeds) single feed', async () => {
     expect(result).toContain('my-module-1/main.css');
 });
 
-test('reader([stream1, stream2]) mulitple feedStreams merged', async () => {
+test('reader(feeds) support for legacy .content field is maintained', async () => {
+    expect.assertions(1);
+    const sink = new SinkFs({
+        path: path.join(__dirname, './test-assets'),
+    });
+    const feed = JSON.parse(await sink.get('legacy.json'));
+
+    const result = await reader([feed]);
+
+    expect(result).toContain('my-module-1/main.css');
+});
+
+test('reader([feed1, feed2]) mulitple feeds merged', async () => {
     expect.assertions(4);
     const sink = new SinkFs({
         path: path.join(__dirname, './test-assets'),
@@ -54,7 +66,7 @@ test('reader(): throws on no input', async () => {
     }
 });
 
-test('reader(123): throws on non stream or array input', async () => {
+test('reader(123): throws on non array input', async () => {
     expect.assertions(1);
     try {
         await reader(123);
