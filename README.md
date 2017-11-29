@@ -42,7 +42,7 @@ The following is an example of a feed file:
         version: '1.0.1',
         file: 'my-module-1/main.css',
         // bundled css content with any @import statements inlined
-        content: '/* ... */'
+        source: '/* ... */'
     }
 ]
 ```

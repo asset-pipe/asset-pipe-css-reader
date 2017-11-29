@@ -4,6 +4,6 @@
     "name": "my-module-1",
     "version": "1.0.1",
     "file": "my-module-1/main.css",
-    "source": "/* my-module-1/main.css */\n"
+    "content": "/* my-module-1/main.css */\n"
   }
 ]

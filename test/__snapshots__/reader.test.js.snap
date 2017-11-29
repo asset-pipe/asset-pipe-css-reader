@@ -8,4 +8,4 @@ exports[`reader([]): throws on empty array 1`] = `"Expected at least 1 feed to b
 
 exports[`reader([1,2,3]): throws on array containing non feed items 1`] = `"Expected every feed to be an array. Instead got \\"1, 2, 3\\""`;
 
-exports[`reader(123): throws on non stream or array input 1`] = `"Expected at least 1 feed to be given. Instead got \\"undefined\\""`;
+exports[`reader(123): throws on non array input 1`] = `"Expected at least 1 feed to be given. Instead got \\"undefined\\""`;
