@@ -82,10 +82,10 @@ Reader takes an array of feeds. Feeds should be produced with an asset-pipe sink
 
 Example
 ```js
-cssReader([feed, ...feeds])
+const bundle = await cssReader([feed, ...feeds])
 ```
 
-Returns: `string`
+Returns: `Promise<string>` - A promise that resolves to a bundle string.
 
 ## Contributing
 
