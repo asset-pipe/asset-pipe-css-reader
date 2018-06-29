@@ -35,7 +35,7 @@
     "prettier": "^1.9.2",
     "projectz": "^1.4.0",
     "semantic-release": "^15.1.4",
-    "travis-deploy-once": "^4.3.1"
+    "travis-deploy-once": "^5.0.1"
   },
   "scripts": {
     "format": "prettier --write --trailing-comma=all --single-quote --tab-width=4 lib/**/*.js test/**/*.js",
