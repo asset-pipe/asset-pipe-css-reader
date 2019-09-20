@@ -93,9 +93,11 @@ Supported arguments are:
 
 * `feeds` - Array - An Array of feeds.
 * `options` - Object - configuration.
-    * `options.minify` (default: false) Specify whether to minify code using uglify.
+    * `options.minify` (default: false) Specify whether to minify code using [cssnano](https://cssnano.co/).
 
-Returns: `Promise<string>` - A promise that resolves to a bundle string.
+Returns: `Promise<string>` - A promise that resolves to a bundle string that is processed by [autoprefixer](https://github.com/postcss/autoprefixer).
+
+Remember to specify a [browserslist](https://github.com/browserslist/browserslist) in your project to ensure cssnano and autoprefixer support the browsers your users use.
 
 ## Contributing
 
