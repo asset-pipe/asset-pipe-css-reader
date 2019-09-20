@@ -115,7 +115,7 @@ test('reader([s1,s2,s3,s4]) ensure dedupe and correct css concat order', async (
 });
 
 test('Autoprefixer removes old CSS syntax', async () => {
-    expect.assertions(1);
+    expect.assertions(2);
     const sink = new SinkFs({
         path: path.join(__dirname, './test-assets'),
     });
@@ -124,6 +124,7 @@ test('Autoprefixer removes old CSS syntax', async () => {
     const result = await reader([feed]);
 
     expect(result).not.toMatch('-webkit-border-radius');
+    expect(result).toMatchSnapshot();
 });
 
 test('cssnano dedupes and minifies', async () => {

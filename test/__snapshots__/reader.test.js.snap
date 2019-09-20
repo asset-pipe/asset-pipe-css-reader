@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Autoprefixer removes old CSS syntax 1`] = `
+".example {
+    border-radius: 2px;
+}
+
+.example {
+    border-radius: 2px;
+}"
+`;
+
 exports[`Dedupe of identical hashes occurs 1`] = `"/* my-module-1/main.css */"`;
 
 exports[`reader(): throws on no input 1`] = `"Expected at least 1 feed to be given. Instead got \\"0\\""`;
