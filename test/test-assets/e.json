@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ac0ee854d0ad3c1d55bdfec6f88b5a2e5c46dbcafb26401c4ff4465c8a42b093",
+    "name": "my-module-1",
+    "version": "1.0.1",
+    "file": "my-module-1/main.css",
+    "source": ".example {\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n}"
+  },
+  {
+    "id": "4da2d72bade347dc63aa34a30d533e211e6ea593ff996bf92b6f17a1e4608190",
+    "name": "my-module-2",
+    "version": "1.0.1",
+    "file": "my-module-2/css/main.css",
+    "source": ".example {\n    border-radius: 2px;\n}"
+  }
+]

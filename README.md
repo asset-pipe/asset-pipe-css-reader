@@ -85,6 +85,16 @@ Example
 const bundle = await cssReader([feed, ...feeds])
 ```
 
+This module has the following API:
+
+### function(feeds, [options])
+
+Supported arguments are:
+
+* `feeds` - Array - An Array of feeds.
+* `options` - Object - configuration.
+    * `options.minify` (default: false) Specify whether to minify code using uglify.
+
 Returns: `Promise<string>` - A promise that resolves to a bundle string.
 
 ## Contributing
