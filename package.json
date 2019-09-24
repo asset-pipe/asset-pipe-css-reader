@@ -23,7 +23,11 @@
     "greenkeeper[bot] (http://github.com/apps/greenkeeper)"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "autoprefixer": "^9.6.1",
+    "cssnano": "^4.1.10",
+    "postcss": "^7.0.18"
+  },
   "devDependencies": {
     "@asset-pipe/sink-fs": "^1.1.4",
     "commitizen": "^3.0.5",

@@ -113,3 +113,28 @@ test('reader([s1,s2,s3,s4]) ensure dedupe and correct css concat order', async (
         '/* my-module-1/main.css */',
     ]);
 });
+
+test('Autoprefixer removes old CSS syntax', async () => {
+    expect.assertions(2);
+    const sink = new SinkFs({
+        path: path.join(__dirname, './test-assets'),
+    });
+    const feed = JSON.parse(await sink.get('e.json'));
+
+    const result = await reader([feed]);
+
+    expect(result).not.toMatch('-webkit-border-radius');
+    expect(result).toMatchSnapshot();
+});
+
+test('cssnano dedupes and minifies', async () => {
+    expect.assertions(1);
+    const sink = new SinkFs({
+        path: path.join(__dirname, './test-assets'),
+    });
+    const feed = JSON.parse(await sink.get('e.json'));
+
+    const result = await reader([feed], { minify: true });
+
+    expect(result).toBe('.example{border-radius:2px}');
+});
